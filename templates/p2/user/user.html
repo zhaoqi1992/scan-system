@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="/static/js/apps/p2/user/user.js"></script>
+
+<div class="row">
+	<div class="col-xs-12 sdk-content-select">
+		<span><i class="fa fa-home"></i> </span><span
+			class="sdk-content-select-n">&nbsp;DATAFRIENDS&nbsp;&nbsp;|&nbsp;
+			&nbsp;</span><span class="sdk-content-select-e">用户管理 > 用户管理</span> <span
+			style="float: right;" class="form-inline"> <span>
+				<button class="btn btn-default" data-toggle='modal' data-target='#setEngine' onclick="addUser();">新增用户</button> </span>
+		</span>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-2" id="content-menu"></div>
+	<div class="col-xs-10" style="min-height: 760px;">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="panel panel-default">
+					<div class="panel-heading">用户列表</div>
+					<div id="dataTablesDiv">
+						<table id='table' class='common-table' width='100%' border='0'
+							cellspacing='0'>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- modal : 新增用户 -->
+<div class="modal fade" id="setEngine" tabindex="-1" role="dialog"
+	aria-hidden="true" data-backdrop="false">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">
+					新增用户
+				</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" style="margin-top: 20px;">
+					<input type="hidden" value="" id="syncid">
+					<div class="form-group ">
+						<label for="username" class="col-xs-2 control-label">用户名称</label>
+						<div class="col-xs-8">
+							<input class="form-control" id="username" value=""
+								placeholder="用户名称">
+						</div>
+					</div>
+					<div class="form-group ">
+						<label for="password" class="col-xs-2 control-label">密码</label>
+						<div class="col-xs-8">
+							<input type="password" class="form-control" id="password"
+								placeholder="密码">
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary " onclick="save();">提交</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal"
+					id="update-sdk-cancle">取消</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- modal结束 -->

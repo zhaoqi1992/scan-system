@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#sdk-panel .panel-body a").click(function() {
+			var url = $(this).attr("value");
+			openURL(url);
+			changeMenu(url);
+		});
+	});
+	// 点击菜单触发
+	function changeMenu(url) {
+		var aTags = $("#sdk-panel .panel-body a");
+		var currentMenuName = "";
+		for ( var i = 0; i < aTags.length; i++) {
+			var aTag = aTags[i];
+			var hrefValue = $(aTag).attr('value');
+			if (url == hrefValue) {
+				$(aTag).attr("style", 'color:#0097aa'); // 清除全部被选中样式
+				currentMenuName = $(aTag).text();
+				break;
+			}
+		}
+	}
+</script>
+<!-- menu -->
+<div class="panel-group" id="sdk-panel" role="tablist"
+	aria-multiselectable="true">
+	<div class="panel panel-default">
+		<div class="panel-heading" role="tab" id="sdk-menu-head-2">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#sdk-panel-2"
+					href="#sdk-menu-2" aria-expanded="true" raia-controls="sdk-menu-2"><i
+					class="fa fa-cog"></i>&nbsp;主动扫描 </a>
+			</h4>
+		</div>
+		<div id="sdk-menu-2" class="panel-collapse collapse in"
+			role="tabpanel" aria-labelledby="sdk-menu-head-2">
+			<div class="panel-body">
+				<div class="container-fluid">
+					<a href="javascript:void(0);" value="auth/activetask/newtaskpage">新建任务</a> <br> <a
+						href="javascript:void(0);" value="auth/activetask/taskmanagerpage">任务管理</a> <br>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel-heading" role="tab" id="sdk-menu-head-3">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#sdk-panel-3"
+					href="#sdk-menu-3" aria-expanded="true" raia-controls="sdk-menu-3"><i
+					class="fa fa-cog"></i>&nbsp;被动扫描 </a>
+			</h4>
+		</div>
+		<div id="sdk-menu-3" class="panel-collapse collapse in"
+			role="tabpanel" aria-labelledby="sdk-menu-head-3">
+			<div class="panel-body">
+				<div class="container-fluid">
+					<a href="javascript:void(0);" value="auth/passive/urlimportpage">流量导入</a> <br> <a
+						href="javascript:void(0);" value="auth/passive/testsetpage">检测配置</a> <br> <a
+						href="javascript:void(0);" value="auth/passive/historypage">请求历史</a> <br>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel-heading" role="tab" id="sdk-menu-head-4">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#sdk-panel-4"
+					href="#sdk-menu-4" aria-expanded="true" raia-controls="sdk-menu-4"><i
+					class="fa fa-cog"></i>&nbsp;漏洞管理 </a>
+			</h4>
+		</div>
+		<div id="sdk-menu-4" class="panel-collapse collapse in"
+			role="tabpanel" aria-labelledby="sdk-menu-head-4">
+			<div class="panel-body">
+				<div class="container-fluid">
+					<a href="javascript:void(0);" value="auth/vuln/vulnerlistpage">漏洞列表</a> <br>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel-heading" role="tab" id="sdk-menu-head-5">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#sdk-panel-5"
+					href="#sdk-menu-5" aria-expanded="true" raia-controls="sdk-menu-5"><i
+					class="fa fa-cog"></i>&nbsp;规则管理 </a>
+			</h4>
+		</div>
+		<div id="sdk-menu-5" class="panel-collapse collapse in"
+			role="tabpanel" aria-labelledby="sdk-menu-head-5">
+			<div class="panel-body">
+				<div class="container-fluid">
+					<a href="javascript:void(0);" value="auth/rule/rulepage">规则管理</a> <br> <a
+						href="javascript:void(0);" value="auth/policy/policypage">策略管理</a> <br>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel-heading" role="tab" id="sdk-menu-head-6">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#sdk-panel-6"
+					href="#sdk-menu-6" aria-expanded="true" raia-controls="sdk-menu-6"><i
+					class="fa fa-cog"></i>&nbsp;引擎管理 </a>
+			</h4>
+		</div>
+		<div id="sdk-menu-6" class="panel-collapse collapse in"
+			role="tabpanel" aria-labelledby="sdk-menu-head-6">
+			<div class="panel-body">
+				<div class="container-fluid">
+					<a href="javascript:void(0);" value="auth/enginetype/enginetypepage">引擎类别管理</a> <br> <a
+						href="javascript:void(0);" value="auth/engine/onlineenginepage">在线引擎</a> <br>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- menu/end -->

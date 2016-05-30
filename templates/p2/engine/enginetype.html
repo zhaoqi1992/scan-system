@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript"
+	src="/static/js/apps/p2/engine/enginetype.js"></script>
+<div class="row">
+	<div class="col-xs-12 sdk-content-select">
+		<span><i class="fa fa-home"></i> </span><span
+			class="sdk-content-select-n">&nbsp;DATAFRIENDS&nbsp;&nbsp;|&nbsp;
+			&nbsp;</span><span class="sdk-content-select-e">引擎管理 > 引擎类别管理</span> <span
+			style="float: right;" class="form-inline"> <span><input
+				class="form-control" type="text" id="typename" value=""
+				placeholder="类型名称" title="类型名称"> </span> <span> <select
+				class="form-control" id="type">
+					<option selected="selected" value="">请选项引擎类型</option>
+					<option value="web_active">web_active</option>
+					<option value="web_passive">web_passive</option>
+					<option value="asset_active">asset_active</option>
+					<option value="asset_passive">asset_passive</option>
+			</select> </span> <span> <select class="form-control" id="enable">
+					<option selected="selected" value="">请选择是否启用</option>
+					<option value="1">启用</option>
+					<option value="0">不启用</option>
+			</select> </span> <span>
+				<button class="btn btn-default" onclick="addEngineType();">添加引擎类别</button>
+		</span> </span>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-2" id="content-menu"></div>
+	<div class="col-xs-10" style="min-height: 760px;">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="panel panel-default">
+					<div class="panel-heading">引擎类别列表</div>
+					<div id="dataTablesDiv">
+						<table id='table' class='common-table' width='100%' border='0'
+							cellspacing='0'></table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="/static/js/libs/bootstrap-switch-master/bootstrapSwitch.css" />
+<script type="text/javascript" src="/static/js/libs/bootstrap-switch-master/bootstrapSwitch.js"></script>
+<script type="text/javascript" src="/static/js/apps/p2/data/syncset.js"></script>
+
+<div class="row">
+	<div class="col-xs-12 sdk-content-select">
+		<span><i class="fa fa-home"></i> </span><span
+			class="sdk-content-select-n">&nbsp;DATAFRIENDS&nbsp;&nbsp;|&nbsp;
+			&nbsp;</span><span class="sdk-content-select-e">数据管理 > 同步设置</span> <span
+			style="float: right;" class="form-inline">
+			<form name="urlform" id="urlform" method="post"
+									enctype="multipart/form-data"
+									action="">
+				<span><input type="file" name="file" id="file" value="" class="form-control" /></span>
+				<span><a class="btn btn-default" onclick="uploadfile();">提交</a></span>
+			</form>	
+		</span>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-2" id="content-menu"></div>
+	<div class="col-xs-10" style="min-height: 760px;">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						同步列表 <span style="float: right;"> </span>
+					</div>
+					<div id="dataTablesDiv">
+						<table id='table' class='common-table' width='100%' border='0'
+							cellspacing='0'>
+						</table>
+						<!-- modal : 配置引擎 -->
+						<div class="modal fade" id="setEngine" tabindex="-1" role="dialog"
+							aria-hidden="true" data-backdrop="false">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal"
+											aria-label="close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+										<h4 class="modal-title">
+											配置引擎<span id="engine_now"></span>
+										</h4>
+									</div>
+									<div class="modal-body">
+										<form class="form-horizontal" style="margin-top: 20px;">
+											<input type="hidden" value="" id="syncid">
+											<div class="form-group" id="strategydiv">
+												<label for="enable" class="col-xs-2 control-label">是否开启</label>
+												<div class="col-xs-8">
+													<input type="hidden" value="1" id="enable">
+													<div class="switch" data-on="info" data-off="success" id="switch-div">
+														<input type="checkbox" checked />
+													</div>
+												</div>
+											</div>
+											<div class="form-group ">
+												<label for="syncspan" class="col-xs-2 control-label">域名范围</label>
+												<div class="col-xs-8">
+													<textarea rows="" cols="" class="form-control"
+														id="syncspan" placeholder="同步域名范围"></textarea>
+												</div>
+											</div>
+											<div class="form-group ">
+												<label for="synctarget" class="col-xs-2 control-label">同步目的</label>
+												<div class="col-xs-8">
+													<input type="text" class="form-control" id="synctarget"
+														placeholder="同步目的IP">
+												</div>
+											</div>
+											<div class="form-group ">
+												<label for="synctarget" class="col-xs-2 control-label">同步周期</label>
+												<div class="col-xs-8">
+													<div class="input-group">
+														<div class="input-group-addon">每</div>
+														<input type="text" class="form-control" id="hour" onkeyup="value=value.replace(/[^\d]/g,'')">
+														<div class="input-group-addon">小时为一个去重周期</div>
+													</div>
+
+												</div>
+											</div>
+											<div class="form-group ">
+												<label for="synctarget" class="col-xs-2 control-label">同步间隔</label>
+												<div class="col-xs-8">
+													<div class="input-group">
+														<div class="input-group-addon">每</div>
+														<input type="text" class="form-control" id="minutes" onkeyup="value=value.replace(/[^\d]/g,'')">
+														<div class="input-group-addon">分钟后同步一次数据</div>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-primary "
+											onclick="save();">提交</button>
+										<button type="button" class="btn btn-default"
+											data-dismiss="modal" id="update-sdk-cancle">取消</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- modal结束 -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="/static/js/apps/p2/index/index.js"></script>
+
+<div class="row">
+	<div class="col-xs-12 sdk-content-select">
+		<span><i class="fa fa-home"></i> </span><span
+			class="sdk-content-select-n">&nbsp;DATAFRIENDS&nbsp;&nbsp;|&nbsp;
+			&nbsp;</span><span class="sdk-content-select-e">首页 > 系统概况</span> <span
+			style="float: right;" class="form-inline"> <span
+			class="input-group"> <input id="datepicker" type="text"
+				class="form-control" readonly="readonly" value=""
+				style="width: 190px;cursor: pointer;"> <span
+				class="input-group-addon"> <i class="fa fa-calendar"></i> </span> </span> <span>
+				<button class="btn btn-default" id="searchData"
+					onclick="queryData();">查询</button> </span> </span>
+
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-2" id="content-menu"></div>
+	<div class="col-xs-10" style="min-height: 760px;">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-6">
+					<div class="panel panel-default">
+						<div class="panel-heading">漏洞数量统计</div>
+						<div class="panel-body">
+							<div class="container-fluid">
+								<div id="vulnercount_chart" class="sdk-chart"
+									style="margin-top: -5px"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<div class="panel panel-default">
+						<div class="panel-heading">漏洞类型统计</div>
+						<div class="panel-body">
+							<div class="container-fluid">
+								<div id="vulnertype_chart" class="sdk-chart"
+									style="margin-top: -5px"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-6">
+					<div class="panel panel-default">
+						<div class="panel-heading">域名漏洞统计</div>
+						<div class="panel-body">
+							<div class="container-fluid">
+								<div id="domain_chart" class="sdk-chart"
+									style="margin-top: -5px"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<div class="panel panel-default">
+						<div class="panel-heading">队列任务数量</div>
+						<div class="panel-body">
+							<div class="container-fluid">
+								<div id="queuetask_chart" class="sdk-chart"
+									style="margin-top: -5px"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

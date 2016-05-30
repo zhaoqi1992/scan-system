@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css"
+	href="/static/js/libs/bootstrap-switch-master/bootstrapSwitch.css" />
+<script type="text/javascript"
+	src="/static/js/libs/bootstrap-switch-master/bootstrapSwitch.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="/static/js/libs/bootstrap-treeview-master/dist/bootstrap-treeview.min.css" />
+<script type="text/javascript"
+	src="/static/js/libs/bootstrap-treeview-master/dist/bootstrap-treeview.min.js"></script>
+<script type="text/javascript"
+	src="/static/js/apps/p2/vulner/passive.js"></script>
+
+<div class="row">
+	<div class="col-xs-12 sdk-content-select">
+		<span><i class="fa fa-home"></i> </span><span
+			class="sdk-content-select-n">&nbsp;DATAFRIENDS&nbsp;&nbsp;|&nbsp;
+			&nbsp;</span><span class="sdk-content-select-e">漏洞扫描 > 被动检测</span> <span
+			style="float: right;" class="form-inline"> </span>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-2" id="content-menu"></div>
+	<div class="col-xs-10" style="min-height: 760px;">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="panel panel-default">
+					<div class="panel-heading">配置被动检测</div>
+					<div class="panel-body">
+						<div class="container-fluid">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label for="openrealtime" class="col-sm-3 control-label">开始实时请求检测</label>
+									<div class="col-sm-9 form-right">
+										<div class="switch" data-on="info" data-off="success" id="switch-div">
+											<input type="checkbox" checked id="enable" />
+										</div>关闭后只入库,开启时会自动加入漏洞扫描任务
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="check_engine" class="col-sm-3 control-label">检测引擎</label>
+									<div class="col-sm-9 form-right">
+										<div class="row" id="engine_div">
+											
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="policy" class="col-sm-3 control-label">扫描策略</label>
+									<div class="col-sm-9 form-right">
+										<select class="form-control" id="policy">
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="wblist" class="col-sm-3 control-label">白名单/黑名单</label>
+									<input type="hidden" id="black_or_white" value="">
+									<div class="col-sm-9 form-right">
+										<div class="btn-group" role="group" data-toggle="buttons">
+											<label class="btn btn-default active"> <input type="radio" name="wblist" value="white" checked="checked">白名单 </label>
+											<label class="btn btn-default"> <input type="radio" name="wblist" value="black">黑名单</label>
+										</div>
+										<div style="margin-top: 10px;">
+											<textarea rows="5" cols="5" class="form-control" id="wblist" placeholder="白名单/黑名单，必填"></textarea>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-3 col-sm-9">
+										<button class="btn btn-default" style="width: 100px;"
+											onclick="save();">提交</button>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

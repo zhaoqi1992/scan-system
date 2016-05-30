@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="../../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../static/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../../static/css/animate.css" rel="stylesheet">
+    <link href="../../static/css/style.css" rel="stylesheet">
+    <link href="../../static/css/plugins/dataTables/datatables.min.css" rel="stylesheet">
+    <link href="../../static/js/libs/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+
+    <!-- Mainly scripts -->
+    <script src="../../static/js/jquery-2.1.1.js"></script>
+    <script src="../../static/js/bootstrap.min.js"></script>
+    <script src="../../static/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="../../static/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="../../static/js/libs/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.min.js" type="text/javascript" charset="utf-8" async defer></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="../../static/js/inspinia.js"></script>
+    <script src="../../static/js/plugins/pace/pace.min.js"></script>
+
+    <script src="../../static/js/apps/p3/common.js"></script>
+
+<script type="text/javascript" src="../../static/js/plugins/jeditable/jquery.jeditable.js"></script>
+<script type="text/javascript" src="../../static/js/plugins/dataTables/datatables.min.js"></script>
+<script type="text/javascript" src="../../static/js/libs/jquery.json-2.2-min.js"></script>
+<script type="text/javascript" src="../../static/js/libs/jquery.dateFormat.js"></script>
+<script type="text/javascript" src="../../static/js/libs/DataTables-1.10.5/media/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../../static/js/libs/bootstrap-daterangepicker-master/moment.js"></script>
+<script type="text/javascript" src="../../static/js/libs/bootstrap-daterangepicker-master/daterangepicker.js"></script>
+<link href="../../static/css/plugins/footable/footable.core.css" rel="stylesheet" />
+<script src="../../static/js/plugins/footable/footable.all.min.js"></script>
+<script src="../../static/js/libs/ludo-jquery-treetable-73690a9/jquery.treetable.js" type="text/javascript" charset="utf-8" async defer></script>
+
+</head>
+
+<script>
+$(document).ready(function() {
+    var u = getUrlParam(window.location.href,"u");
+    if(null==u||""==u.trim()){
+        openURL("main.html");
+    }else{
+        openURL(u);
+    }
+
+    //加载li 属性
+
+     //var pe = document.getElementById("adfwefsd");
+     //pe.setAttribute("class", "active");
+});
+
+//动态加载菜单
+function openURL(url) {
+
+    currentURL = url+"-view.html";
+    //currentURL = ""+url+"-view.html";
+    //alert(currentURL);
+    var page = $.ajax({
+        url : currentURL,
+        async : false
+    });
+    $("#content-div").html(page.responseText);
+}
+
+</script>
+
+<body>
+    <div id="wrapper">
+
+        <!-- 菜单部分 -->
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element"> <span>
+                            <img alt="image" class="img-circle" src="../../static/img/profile_small.jpg" />
+                             </span>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="table_data_tables.html#">
+                                <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Dong xiaolin</strong>
+                             </span> <span class="text-muted text-xs block">System Admin<b class="caret"></b></span> </span>
+                            </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                <li><a href="profile.html">Profile</a></li>
+                                <li><a href="contacts.html">Contacts</a></li>
+                                <li><a href="mailbox.html">Mailbox</a></li>
+                                <li class="divider"></li>
+                                <li><a href="login.html">Logout</a></li>
+                            </ul>
+                        </div>
+                        <div class="logo-element">
+                            Scan+
+                        </div>
+                    </li>
+                   <li>
+                       <a href="main.html?u=dashboards"><i class="fa fa-th-large"></i> <span
+                               class="nav-label">Dashboards</span></a>
+                   </li>
+                    <li class="active">
+                        <a href="table_data_tables.html#"><i class="fa fa-globe"></i> <span
+                                class="nav-label">资产发现</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li class="active"><a href="main.html?u=assetfind/active">主动检测</a></li>
+                            <li><a href="main.html?u=assetfind/passive">被动感知</a></li>
+                            <li><a href="main.html?u=assetfind/task">任务管理</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="table_data_tables.html#"><i class="fa fa-diamond"></i> <span
+                                class="nav-label">资产管理</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="main.html?u=assetmg/port">端口服务</a></li>
+                            <li><a href="main.html?u=assetmg/domain">域名资产</a></li>
+                            <li><a href="main.html?u=assetmg/url">URL资产</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)"><i class="fa fa-flask"></i> <span
+                                class="nav-label">弱点检测</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="main.html?u=vuln/newscan">漏洞扫描</a></li>
+                            <li><a href="main.html?u=vuln/scantask">任务管理</a></li>
+                            <li><a href="main.html?u=vuln/vulnmg">风险管理</a></li>
+                            <li><a href="main.html?u=vuln/workorder">风险工单</a></li>
+                            <!--<li><a href="table_foo_table.html">集成接口</a></li> -->
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)"><i class="fa fa-sitemap"></i> <span
+                                class="nav-label">引擎管理</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="main.html?u=engine/module">模块管理</a></li>
+                            <li><a href="main.html?u=engine/engine">引擎管理</a></li>
+                            <li><a href="main.html?u=engine/template">模板管理</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="table_data_tables.html#"><i class="fa fa-laptop"></i> <span
+                                class="nav-label">系统设置</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="table_data_tables.html">邮件订阅</a></li>
+                            <li><a href="table_foo_table.html">系统事件</a></li>
+                            <li><a href="table_foo_table.html">用户管理</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- 右侧全部 -->
+        <div id="page-wrapper" class="gray-bg">
+
+            <!-- 顶部标题 -->
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li>
+                            <span class="m-r-sm text-muted welcome-message">Welcome to PWRD Scanner System.</span>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="table_data_tables.html#">
+                                <i class="fa fa-bell"></i> <span class="label label-primary">8</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-alerts">
+                                <li>
+                                    <a href="mailbox.html">
+                                        <div>
+                                            <i class="fa fa-envelope fa-fw"></i> You have 16 messages
+                                            <span class="pull-right text-muted small">4 minutes ago</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="profile.html">
+                                        <div>
+                                            <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                            <span class="pull-right text-muted small">12 minutes ago</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="grid_options.html">
+                                        <div>
+                                            <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                            <span class="pull-right text-muted small">4 minutes ago</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <div class="text-center link-block">
+                                        <a href="notifications.html">
+                                            <strong>See All Alerts</strong>
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="login.html">
+                                <i class="fa fa-sign-out"></i> Log out
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- 中间内容 -->
+            <div id="content-div"></div>
+
+            <!-- footer -->
+            <div class="footer">
+                <div class="pull-right">
+                    漏洞扫描系统
+                </div>
+                <div>
+                    <strong>Copyright</strong> 完美世界 &copy; 2016-2017
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

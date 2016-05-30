@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css"
+	href="/static/js/libs/ludo-jquery-treetable-73690a9/css/jquery.treetable.css" />
+<link rel="stylesheet" type="text/css"
+	href="/static/js/libs/ludo-jquery-treetable-73690a9/css/jquery.treetable.theme.default.css" />
+<script type="text/javascript"
+	src="/static/js/libs/ludo-jquery-treetable-73690a9/jquery.treetable.js"></script>
+<script type="text/javascript"
+	src="/static/js/apps/p1/rule/strategy.js"></script>
+<style type="text/css">
+table.treetable {
+	margin: 0px;
+}
+
+table.treetable thead {
+	background-color: #fdfdfd;
+}
+
+table.treetable thead tr th {
+	border: 1px solid #e8e8e8;
+	border-top: none;
+	height: 36px;
+}
+
+table.treetable span {
+	padding: .2em 0 0 1.5em;
+}
+</style>
+<div class="row">
+	<div class="col-xs-12 sdk-content-select">
+		<span><i class="fa fa-home"></i> </span><span
+			class="sdk-content-select-n">&nbsp;DATAFRIENDS&nbsp;&nbsp;|&nbsp;
+			&nbsp;</span><span class="sdk-content-select-e">规则管理> 策略管理</span> <span
+			style="float: right;" class="form-inline"> <span
+			class="btn-group" role="group" data-toggle="buttons"> <label
+				class="btn btn-default active"> <input type="radio"
+					value="add" name="operator"><span>新增</span> </label> <label
+				class="btn btn-default "> <input type="radio" value="update"
+					name="operator"><span>修改</span> </label> <label
+				class="btn btn-default "> <input type="radio" value="del"
+					name="operator"><span>删除</span> </label> </span> <span> <select
+				id="strategylist" class="form-control" onchange="changeStrategy();">
+			</select> <input type="text" class="form-control" placeholder="策略名称"
+				title="策略名称" id="strategyname"> </span> <span>
+				<button class="btn btn-default" onclick="update();">提交</button> </span> </span>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-2" id="content-menu"></div>
+	<div class="col-xs-10" style="min-height: 760px;">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						策略管理
+						<div style="float: right">
+							<a href="#" id="expandAll"
+								onclick="jQuery('#tree-table').treetable('expandAll'); return false;">全部展开</a>
+							<a href="#"
+								onclick="jQuery('#tree-table').treetable('collapseAll'); return false;">全部关闭</a>
+						</div>
+
+					</div>
+					<div class="pannel-body">
+						<table id="tree-table" class="treetable">
+							<thead>
+								<tr>
+									<th width="30%"><input type="checkbox" value=""
+										id="selectAll"> 规则名称</th>
+									<th width="70%">规则介绍</th>
+								</tr>
+							</thead>
+							<tbody id="tree-table-tbody">
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

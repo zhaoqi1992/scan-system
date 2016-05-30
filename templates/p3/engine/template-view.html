@@ -1,0 +1,113 @@
+<script src="../../../static/js/libs/ludo-jquery-treetable-73690a9/jquery.treetable.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../static/js/apps/p3/engine/template-control.js" type="text/javascript"></script>
+
+<link rel="stylesheet" type="text/css" href="../../../static/css/plugins/dataTables/datatables.min.css">
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Data Tables</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a>引擎管理</a>
+            </li>
+            <li class="active">
+                <strong>模板管理</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- 表格部分 -->
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>模板管理</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <!-- 加号取消原先下拉菜单功能，变成模态弹出框 -->
+                        <a href="javasscipt:void(0)" id="plusNewModal">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="table-responsive">
+                            <div id="dataTablesDiv">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 删除模块的modal -->
+<div class="modal" id="deleteModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h2 class="modal-title">删除信息</h2>
+            </div>
+            <div class="modal-body">
+                <p></p>
+            </div>
+            <div class="modal-footer">
+                <button id="close" type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button id='submit' type="button" class="btn btn-primary">删除</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- 添加模块的modal -->
+<div class="modal" id="plusModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h2 class="modal-title">添加模板</h2>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="template_name">模板名称</label>
+                        <input type="text" id="template_name" class="form-control">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="closePlus">关闭</button>
+                <button id='moduleAdd' type="button" class="btn btn-primary">添加</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- 安装模块弹出框 -->
+<div class="modal" id="installModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h2 class="modal-title">配置扫描引擎</h2>
+            </div>
+            <div class="modal-body">
+                <table id="treeTable"></table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="closeInstall">关闭</button>
+                <button id='moduleInstall' type="button" class="btn btn-primary">确认</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

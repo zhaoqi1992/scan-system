@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css"
+	href="/static/js/libs/bootstrap-treeview-master/dist/bootstrap-treeview.min.css" />
+<script type="text/javascript"
+	src="/static/js/libs/bootstrap-treeview-master/dist/bootstrap-treeview.min.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="/static/js/libs/bootstrap-switch-master/bootstrapSwitch.css" />
+<script type="text/javascript"
+	src="/static/js/libs/bootstrap-switch-master/bootstrapSwitch.js"></script>
+<script type="text/javascript"
+	src="/static/js/apps/p2/vulner/integratescan.js"></script>
+	
+<style type="text/css">
+#setEngine .modal-dialog{
+	width: 820px;
+}
+</style>
+
+
+<div class="row">
+	<div class="col-xs-12 sdk-content-select">
+		<span><i class="fa fa-home"></i> </span><span
+			class="sdk-content-select-n">&nbsp;DATAFRIENDS&nbsp;&nbsp;|&nbsp;
+			&nbsp;</span><span class="sdk-content-select-e">漏洞扫描 > 集成扫描</span> <span
+			style="float: right;" class="form-inline"> <span>
+				<button class="btn btn-default" onclick="toSave();" data-toggle='modal'
+					data-target='#setEngine'>添加新接口</button> </span> </span>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-2" id="content-menu"></div>
+	<div class="col-xs-10" style="min-height: 760px;">
+		<div class="container-fluid" id="interface_set_div"></div>
+		<!-- modal : 新增集成扫描 -->
+		<div class="modal fade" id="setEngine" tabindex="-1" role="dialog"
+			aria-hidden="true" data-backdrop="false">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title">添加新接口</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal" style="margin-top: 20px;">
+							<div class="form-group">
+								<label for="openrealtime" class="col-sm-2 control-label">接口名称</label>
+								<div class="col-sm-9 form-right">
+									<input type="text" class="form-control" id="name"
+										placeholder="接口名称">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="check_engine" class="col-sm-2 control-label">扫描引擎</label>
+								<div class="col-sm-9 form-right">
+									<div class="row" id="engine_div">
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="openrealtime" class="col-sm-2 control-label">接口地址</label>
+								<div class="col-sm-9 form-right">
+									<div class="input-group">
+										<div class="input-group-addon">/auth/scanapi/</div>
+										<input type="text" class="form-control" id="addr" value="">
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="email" class="col-sm-2 control-label">扫描策略</label>
+								<div class="col-sm-9 form-right">
+									<select class="form-control" id="policy">
+										<option value="" selected="selected">策略1</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="email" class="col-sm-2 control-label">是否启用</label>
+								<div class="col-sm-9 form-right">
+									<div class="switch" data-on="info" data-off="success" id="switch_div" value="">
+										<input type="checkbox" checked />
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary "
+							onclick="save();">提交</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal"
+							id="update-sdk-cancle">取消</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- modal结束 -->
+	</div>
+</div>

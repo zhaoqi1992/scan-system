@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css"
+	href="/static/js/libs/bootstrap-treeview-master/dist/bootstrap-treeview.min.css" />
+<script type="text/javascript"
+	src="/static/js/libs/bootstrap-treeview-master/dist/bootstrap-treeview.min.js"></script>
+<script type="text/javascript"
+	src="/static/js/apps/p2/vulner/active.js"></script>
+
+<div class="row">
+	<div class="col-xs-12 sdk-content-select">
+		<span><i class="fa fa-home"></i> </span><span
+			class="sdk-content-select-n">&nbsp;DATAFRIENDS&nbsp;&nbsp;|&nbsp;
+			&nbsp;</span><span class="sdk-content-select-e">漏洞扫描 > 主动扫描</span> <span
+			style="float: right;" class="form-inline"> </span>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-2" id="content-menu"></div>
+	<div class="col-xs-10" style="min-height: 760px;">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="panel panel-default">
+					<div class="panel-heading">配置主动扫描</div>
+					<div class="panel-body">
+						<div class="container-fluid">
+							
+							<!-- form内容 -->
+							<form name="urlform" id="urlform" method="post"
+								enctype="multipart/form-data"
+								action="">
+								<div class="form-horizontal">
+									<input type="hidden" id="engineid" value="">
+									<div id="hidden_content"></div>
+									<div class="form-group">
+										<label for="openrealtime" class="col-sm-2 control-label">扫描名称</label>
+										<div class="col-sm-10 form-right">
+											<input type="text" class="form-control" id="name" name="name"
+												placeholder="扫描名称，必填">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="target" class="col-sm-2 control-label">扫描目标</label>
+										<div class="col-sm-10 form-right">
+											<textarea rows="" cols="" class="form-control" id="target" name="target"
+												placeholder="扫描目标,与下面文件上传2选1"></textarea>
+											<span style="color: red;">请每行输入一个IP/域名/网址</span>
+											<div style="margin-top: 10px;">
+												<input type="file" id="file" name="file">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<input type="hidden" value="" id="scanner_type" name="scanner_type">
+										<input type="hidden" value="" id="scanner" name="scanner">
+										<label for="check_engine" class="col-sm-2 control-label">扫描引擎</label>
+										<div class="col-sm-10 form-right">
+											<div class="row" id="engine_div">
+												
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="email" class="col-sm-2 control-label">高级配置</label>
+										<div class="col-sm-10 form-right" style="margin-top: 7px;">
+											<a href="javascript:void(0);"
+												onclick="changeSet('advance_config');"><span
+												id="advance_config_button">设置&nbsp;<b>+</b> </span> </a>
+											<div id="advance_config_div">
+												<div class="form-group">
+													<label for="nmap" class="col-sm-3 control-label">Cookie</label>
+													<div class="col-sm-9">
+														<input type="text" class="form-control" id="cookie" name="cookie"
+															placeholder="Cookie" style="max-width: 300px;">
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="nmapscript" class="col-sm-3 control-label">User-Agent</label>
+													<div class="col-sm-9">
+														<input type="text" class="form-control" id="user_agent" name="user_agent"
+															placeholder="User-Agent" style="max-width: 300px;">
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="policy" class="col-sm-3 control-label">扫描策略</label>
+													<div class="col-sm-9">
+														<select id="policy" class="form-control" name="policy">
+															<option value="" selected="selected">策略1</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="packet_rate" class="col-sm-3 control-label">请求频率</label>
+													<div class="col-sm-9">
+														<div class="input-group">
+															<div class="input-group-addon">每秒</div>
+															<input type="text" class="form-control" id="packet_rate" name="packet_rate"
+																value="10" onkeyup="value=value.replace(/[^\d]/g,'')">
+															<div class="input-group-addon">个请求</div>
+														</div>
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="repeat" class="col-sm-3 control-label">周期检测</label>
+													<div class="col-sm-9 ">
+														<input type="hidden" id="scan_period" name="scan_period" value="">
+														<div class="input-group">
+															<div class="input-group-addon">每隔</div>
+															<input type="text" class="form-control" id="check_day" onkeyup="value=value.replace(/[^\d]/g,'')">
+															<div class="input-group-addon">天</div>
+															<input type="text" class="form-control" id="check_hour" onkeyup="value=value.replace(/[^\d]/g,'')">
+															<div class="input-group-addon">小时检测一次</div>
+														</div>
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="checktime" class="col-sm-3 control-label">定时检测</label>
+													<div class="col-sm-9">
+														<span class="input-group" style="max-width: 300px;">
+															<input id="datepicker" type="text" class="form-control"
+															readonly="readonly" value="" style="cursor: pointer;" name="set_start_time">
+															<span class="input-group-addon"> <i
+																class="fa fa-calendar"></i> </span> </span>
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="checktime" class="col-sm-3 control-label">Host</label>
+													<div class="col-sm-9">
+														<textarea rows="5" cols="5" class="form-control" id="hosts" name="hosts"
+															placeholder="Host信息"></textarea>
+													</div>
+												</div>
+
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-sm-offset-2 col-sm-10">
+											<a class="btn btn-default" style="width: 100px;"
+												onclick="save();">提交</a>
+										</div>
+									</div>
+								</div>
+							</form>
+							<!-- form中内容结束 -->
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

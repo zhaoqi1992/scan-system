@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript"
+	src="/static/js/libs/jquery.form.js"></script>
+<script type="text/javascript" 
+	src="/static/js/libs/jquery.base64.js"></script>
+<script type="text/javascript"
+	src="/static/js/apps/p1/activescan/newtask.js"></script>
+<div class="row">
+	<div class="col-xs-12 sdk-content-select">
+		<span><i class="fa fa-home"></i> </span><span
+			class="sdk-content-select-n">&nbsp;DATAFRIENDS&nbsp;&nbsp;|&nbsp;
+			&nbsp;</span><span class="sdk-content-select-e">主动扫描 > 新建任务</span>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-2" id="content-menu"></div>
+	<div class="col-xs-10" style="min-height: 760px;">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="panel panel-default">
+					<div class="panel-heading">新建任务</div>
+					<div class="panel-body">
+						<div class="container-fluid">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label for="domain" class="col-sm-2 control-label">域名</label>
+									<div class="col-sm-6">
+										<input type="text" class="form-control" id="domain"
+											placeholder="域名，必填">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="scan_in" class="col-sm-2 control-label">扫描入口</label>
+									<div class="col-sm-6">
+										<input type="text" class="form-control" id="scan_in"
+											placeholder="扫描入口，必填">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="scan_engine" class="col-sm-2 control-label">扫描引擎</label>
+									<div class="col-sm-6">
+										<div class="checkbox" id="scan_engine_div"></div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label">高级配置</label>
+									<div class="col-sm-6" style="margin-top: 7px;">
+										<a href="javascript:void(0);"
+											onclick="changeSet('advance_config');"><span
+											id="advance_config_button">设置&nbsp;<b>+</b> </span> </a>
+										<div id="advance_config_div">
+											<div class="form-group">
+												<label for="cookie" class="col-sm-3 control-label">Cookie</label>
+												<div class="col-sm-6">
+													<input type="text" class="form-control" id="cookie"
+														placeholder="Cookie">
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="user_agent" class="col-sm-3 control-label">User-Agent</label>
+												<div class="col-sm-6">
+													<input type="text" class="form-control" id="user_agent"
+														placeholder="User-Agent">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
+										<button class="btn btn-default" style="width: 100px;"
+											onclick="newtask();">提交</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="panel panel-default">
+					<div class="panel-heading">批量导入目标</div>
+					<div class="panel-body">
+						<div class="container-fluid">
+							<div class="form-horizontal">
+								<form name="urlform" id="urlform" method="post"
+									enctype="multipart/form-data"
+									action="http://10.12.2.68/auth/activetask/uploadtask">
+									<!-- action="javascript: batchImportUrl();" -->
+									<div class="form-group">
+										<label for="urllist" class="col-sm-2 control-label">URL列表</label>
+										<div class="col-sm-6" style="margin-top: 7px;">
+											<input type="file" name="file" id="file" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label">高级配置</label>
+										<div class="col-sm-6" style="margin-top: 7px;">
+											<a href="javascript:void(0);"
+												onclick="changeSet('advance_config1');"><span
+												id="advance_config1_button">设置&nbsp;<b>+</b> </span> </a>
+											<div id="advance_config1_div">
+												<div class="form-group">
+													<label for="cookie1" class="col-sm-3 control-label">Cookie</label>
+													<div class="col-sm-6">
+														<input type="text" class="form-control" id="cookie1"
+															name="cookie1" placeholder="Cookie">
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="user_agent1" class="col-sm-3 control-label">User-Agent</label>
+													<div class="col-sm-6">
+														<input type="text" class="form-control" id="user_agent1"
+															name="user_agent1" placeholder="User-Agent">
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-sm-offset-2 col-sm-10">
+											<input type="submit" class="btn btn-default"
+												style="width: 100px;" value="提交"> <span></span>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css"
+	href="/static/js/libs/bootstrap-3.3.2-dist/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+<link rel="stylesheet" type="text/css"
+	href="/static/js/libs/DataTables-1.10.5/media/css/jquery.dataTables_themeroller.css" />
+<link rel="stylesheet" type="text/css"
+	href="/static/js/libs/DataTables-1.10.5/media/css/jquery.dataTables.css" />
+<link rel="stylesheet" type="text/css"
+	href="/static/js/libs/bootstrap-daterangepicker-master/daterangepicker-bs3.css" />
+<link rel="stylesheet" type="text/css"
+	href="/static/js/libs/font-awesome-4.2.0/css/font-awesome.min.css" />
+<script type="text/javascript"
+	src="/static/js/libs/jquery-1.11.2.min.js"></script>
+<script type="text/javascript"
+	src="/static/js/libs/jquery.json-2.2-min.js"></script>
+<script type="text/javascript" src="/static/js/libs/jquery.cookie.js"></script>
+<script type="text/javascript"
+	src="/static/js/libs/bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+<script type="text/javascript"
+	src="/static/js/libs/echarts-2.2.0/build/dist/echarts-all.js"></script>
+<script type="text/javascript"
+	src="/static/js/libs/echarts-2.2.0/theme/macarons.js"></script>
+<script type="text/javascript"
+	src="/static/js/libs/jquery.dateFormat.js"></script>
+<script type="text/javascript"
+	src="/static/js/libs/DataTables-1.10.5/media/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript"
+	src="/static/js/libs/bootstrap-daterangepicker-master/moment.js"></script>
+<script type="text/javascript"
+	src="/static/js/libs/bootstrap-daterangepicker-master/daterangepicker.js"></script>
+<script type="text/javascript" src="/static/js/apps/common.js"></script>
+
+<script type="text/javascript">
+	var currentURL = null;
+	
+	$(document).ready(function() {
+		openURL("base/main");
+	});
+
+	//动态加载菜单
+	function openURL(url) {
+		currentURL = "./" + url;
+		var page = $.ajax({
+			url : currentURL,
+			async : false
+		});
+		$("#content-div").html(page.responseText);
+
+		var menuPage = $.ajax({
+			url : "/base/menu",
+			async : false
+		});
+		$("#content-menu").html(menuPage.responseText);
+	}
+</script>
+
+</head>
+<body>
+	<!-- header -->
+	<div class="sdk-header">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-header sdk-header-title">
+				<a class="navbar-brand" href="#" style="cursor: pointer;">
+					漏洞扫描管理系统 </a>
+			</div>
+			<div class="collapse navbar-collapse sdk-header-right-title">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#" style="cursor: pointer;"> 回到首页</a>
+					</li>
+					<li><a href="#">您好&nbsp;,&nbsp;用户</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- header/end -->
+
+	<!-- content -->
+	<div class="container-fluid sdk-content" id="content-div"></div>
+	<!-- content end -->
+</body>
+</html>
